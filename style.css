@@ -1,0 +1,277 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0f111598;
+  color: #e4e6eb;
+  font-family: "Georgia", "Times New Roman", serif;
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+header {
+  background: #0d0e11cb;
+  border-bottom: 2px solid #2f3340;
+  padding: 24px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.5px;
+  color: white;
+}
+
+main {
+  max-width: 1050px;
+  margin: auto;
+  padding: 40px 50px 30px;
+  background: rgba(255, 255, 255, 0.932);
+  border-left: 1px solid #22252c;
+  border-right: 1px solid #22252c;
+  border-radius: 5px;
+}
+
+p{
+  font-size: 17px;
+  text-align: justify;
+}
+
+/*topico 1*/
+.pontos {
+  display: flex;
+  gap: 40px; /* espaço entre as listas */
+}
+
+ul.lista{
+  padding-left: 30px;
+  font-size: 16px;
+}
+
+.coluna {
+  flex: 1;
+}
+
+.coluna h4 {
+  margin-bottom: 10px;
+}
+
+.coluna ul {
+  padding-left: 30px;
+}
+
+
+.imagem{
+  max-width: 300px;
+  max-height: 300px;
+}
+
+/* SUMÁRIO */
+.sumario {
+  background: white;
+  border: 1px solid #2a2e3a;
+  border-radius: 6px;
+  padding: 20px;
+  margin: 30px auto;
+  max-width: 97%;
+}
+
+.sumario h2 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #2a2e3a;
+  padding-bottom: 6px;
+  color: black;
+}
+
+.sumario ul {
+  list-style: decimal;
+  padding-left: 20px;
+  color: black;
+  font-size: 17px;
+}
+
+.sumario a {
+  color: black;
+  font-size: 17px;
+  text-decoration: none;
+}
+
+.sumario a:hover {
+  text-decoration: underline;
+}
+
+
+/* SEÇÕES */
+.section {
+  margin-bottom: 45px;
+}
+
+.section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #2a2d33;
+  color: black;
+}
+
+/* ACCORDION */
+.accordion {
+  margin-top: 14px;
+}
+
+.accordion__item {
+  margin-bottom: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #2a2d33;
+  background: #1a1c21;
+  transition: border 0.3s ease;
+}
+
+.accordion__item.active {
+  border-color: #4b6cff;
+}
+
+/* HEADER DO ACCORDION */
+.accordion__header {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: #f1f1f1;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.25s ease;
+}
+
+.accordion__header:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* SETA */
+.arrow {
+  font-size: 0.9rem;
+  color: #9aa3ff;
+  transition: transform 0.3s ease;
+}
+
+.accordion__item.active .arrow {
+  transform: rotate(180deg);
+}
+
+/* CORPO */
+.accordion__body {
+  display: none;
+  padding: 14px 16px 18px;
+  font-size: 0.95rem;
+  color: white;
+  border-top: 1px solid #2a2d33;
+  background: #17191d;
+}
+
+.accordion__item.active .accordion__body {
+  display: block;
+}
+
+/* BOTÃO VOLTAR AO TOPO */
+#btnTopo {
+  position: fixed;
+  bottom: 50%;
+  right: 8px;
+  transform: translateY(50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: #5c74ff;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  z-index: 999;
+}
+
+#btnTopo.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+  body {
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  main {
+    padding: 20px 16px;
+  }
+
+  p {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  ul.lista,
+  .coluna ul {
+    padding-left: 18px;
+    font-size: 15px;
+  }
+
+  li {
+    margin-bottom: 6px;
+  }
+
+  .section {
+    margin-bottom: 28px;
+  }
+
+  .section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .accordion__body {
+    padding: 12px 14px;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  /* Empilha as colunas no celular */
+  .area {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .sumario ul {
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .imagem{
+    max-width: 250px;
+    min-height: 200px;
+  }
+}
